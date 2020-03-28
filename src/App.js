@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navigation from "./components/navigation/Navigation";
+import Logo from "./components/logo/Logo";
+import ImageLinkForm from "./components/image-link-form/ImageLinkForm";
+import Rank from "./components/rank/Rank";
+import { Grid } from "@material-ui/core";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+        alignItems="center"
+        item
+      >
+        <Logo />
+
+        <Navigation />
+      </Grid>
+      <Grid
+        style={{ height: "80vh", minHeight: "80vh" }}
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
+        alignContent="stretch"
+      >
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          item
         >
-          Learn React
-        </a>
-      </header>
+          <Rank />
+        </Grid>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          item
+        >
+          <ImageLinkForm />
+          {/*<FaceRecognition /> */}
+        </Grid>
+      </Grid>
     </div>
   );
 }
-
-export default App;

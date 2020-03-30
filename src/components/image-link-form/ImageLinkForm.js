@@ -1,9 +1,8 @@
 import React from "react";
 import { Button, TextField, Grid } from "@material-ui/core";
 import ImageSearchIcon from "@material-ui/icons/ImageSearch";
-import Tooltip from "@material-ui/core/Tooltip";
 
-export default function ImageLinkForm() {
+export default function ImageLinkForm({onInputChange, onButtonSubmit}) {
   return (
     <Grid
       container
@@ -20,12 +19,11 @@ export default function ImageLinkForm() {
           label="Image URL"
           placeholder="enter the url of the image for detection"
           required
+          onChange={onInputChange}
         />
-        <Tooltip title="detect image" placement="bottom-end" leaveDelay={200}>
-          <Button color="default">
+          <Button color="default" onClick={onButtonSubmit}>
             <ImageSearchIcon />
           </Button>
-        </Tooltip>
       </Grid>
     </Grid>
   );
